@@ -3,7 +3,29 @@
 public class Player
 {
     public Vector2 position;
+    public Inventory inventory;
     public bool[,] map;
+
+    private int curHp;
+    public int CurHP {get { return curHp; } }
+    private int maxHp;
+    public int MaxHP {get { return maxHp; } }
+
+    public Player()
+    {
+        inventory = new Inventory();
+        maxHp = 100;
+        curHp = maxHp;
+    }
+
+    public void Heal(int amount)
+    {
+        curHp += amount;
+        if (curHp > maxHp)
+        {
+            curHp = maxHp;
+        }
+    }
 
     public void Print()
     {

@@ -3,40 +3,14 @@ using OOPConsoleproject.GameObjects;
 
 namespace OOPConsoleproject.Scenes;
 
-public class FieldScene : BaseScene
+public abstract class FieldScene : BaseScene
 {
     protected string[] mapData;
     protected bool[,] map;
     private ConsoleKey input;
 
    protected List<GameObject> gameObjects;
-
-    public FieldScene()
-    {
-        mapData = new string[]
-        {
-            "########",
-            "#   #  #",
-            "#   #  #",
-            "### #  #",
-            "#      #",
-            "########",
-        };
-        
-        map = new bool[6, 8];
-        for (int y = 0; y < map.GetLength(0); y++)
-        {
-            for (int x = 0; x < map.GetLength(1); x++)
-            {
-                map[y,x] = mapData[y][x] == '#' ? false : true;
-            }
-        }
-        gameObjects = new List<GameObject>();
-        gameObjects.Add(new Place("Town", 'T', new Vector2(1, 1)));
-        
-        Game.Player.position = new Vector2(1, 1);
-        Game.Player.map = map;
-    }
+    
     public override void Render()
     {
         PrintMap();
@@ -44,7 +18,11 @@ public class FieldScene : BaseScene
         {
             go.Print();
         }
+
         Game.Player.Print();
+        
+        Console.SetCursorPosition(0, map.GetLength(0) + 2);
+        Game.Player.inventory.PrintAll();
     }
 
     public override void Input()
@@ -64,9 +42,14 @@ public class FieldScene : BaseScene
             if (Game.Player.position == go.position)
             {
                 go.Interact(Game.Player);
+                if (go.isOnce == true)
+                {
+                    gameObjects.Remove(go);
+                }
+                break;
+                }
             }
         }
-    }
 
     private void PrintMap()
     {

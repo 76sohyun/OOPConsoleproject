@@ -25,9 +25,6 @@ public class ForestFieldScene : FieldScene
           }
           gameObjects = new List<GameObject>();
           gameObjects.Add(new Place("NormalField", 'N', new Vector2(1, 1)));
-        
-          Game.Player.position = new Vector2(1, 1);
-          Game.Player.map = map;
      }
 
      public override void Enter()

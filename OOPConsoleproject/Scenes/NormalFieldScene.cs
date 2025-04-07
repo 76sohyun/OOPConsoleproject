@@ -1,4 +1,6 @@
-﻿namespace OOPConsoleproject.Scenes;
+﻿using OOPConsoleproject.Items;
+
+namespace OOPConsoleproject.Scenes;
 using OOPConsoleproject.GameObjects;
 
 public class NormalFieldScene : FieldScene
@@ -27,9 +29,7 @@ public class NormalFieldScene : FieldScene
         gameObjects = new List<GameObject>();
         gameObjects.Add(new Place("Town", 'T', new Vector2(1, 1)));
         gameObjects.Add(new Place("ForestField", 'F', new Vector2(6, 1)));
-        
-        Game.Player.position = new Vector2(1, 1);
-        Game.Player.map = map;
+        gameObjects.Add(new Potion(new Vector2(1, 4)));
     }
 
     public override void Enter()

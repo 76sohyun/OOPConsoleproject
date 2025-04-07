@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace OOPConsoleproject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Game.Run();
+        }
+    }
+}
 
-Console.WriteLine("Hello, World!");

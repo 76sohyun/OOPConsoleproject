@@ -3,6 +3,11 @@
 public class TownScene : BaseScene
 {
     private ConsoleKey input;
+
+    public TownScene()
+    {
+        name = "Town";
+    }
     public override void Render()
     {
         Console.WriteLine("장소 : 초보자의 마을");
@@ -28,7 +33,7 @@ public class TownScene : BaseScene
         {
             case ConsoleKey.D1:
                 Utill.PressAnyKey("마을 밖으로 나갑니다.");
-                Game.ChangeScene("Field");
+                Game.ChangeScene("NormalField");
                 break;
         }
        

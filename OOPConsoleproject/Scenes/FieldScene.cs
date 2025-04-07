@@ -5,11 +5,11 @@ namespace OOPConsoleproject.Scenes;
 
 public class FieldScene : BaseScene
 {
-    private string[] mapData;
-    private bool[,] map;
+    protected string[] mapData;
+    protected bool[,] map;
     private ConsoleKey input;
 
-    private List<GameObject> gameObjects;
+   protected List<GameObject> gameObjects;
 
     public FieldScene()
     {

@@ -23,6 +23,6 @@ public class TitleScene : BaseScene
 
     public override void Result()
     {
-        
+        Game.ChangeScene("Test01");
     }
 }

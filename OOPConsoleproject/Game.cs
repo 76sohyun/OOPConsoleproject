@@ -15,12 +15,21 @@ public static class Game
         while (gameOver==false)
         {
             Console.Clear();
+            Console.WriteLine();
             curScene.Render();
+            Console.WriteLine();
             curScene.Input();
+            Console.WriteLine();
             curScene.Update();
+            Console.WriteLine();
             curScene.Result();
         }
         End();
+    }
+
+    public static void ChangeScene(string sceneName)
+    {
+        curScene = sceneDic[sceneName];
     }
     
     /// <summary>
@@ -33,6 +42,7 @@ public static class Game
         //씬 설정
         sceneDic = new Dictionary<string, BaseScene>();
         sceneDic.Add("Title", new TitleScene());
+        sceneDic.Add("Test01", new TestScene01());
         
         curScene = sceneDic["Title"];
     }

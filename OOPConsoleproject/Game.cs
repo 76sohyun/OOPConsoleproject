@@ -5,8 +5,13 @@ namespace OOPConsoleproject;
 
 public static class Game
 {
+    
     private static Dictionary<string, BaseScene> sceneDic;
     private static BaseScene curScene;
+    
+    
+    private static Player player;
+    public static Player Player{ get { return player; } }
 
     private static bool gameOver;
     public static void Run()
@@ -37,14 +42,20 @@ public static class Game
     /// </summary>
     private static void Start()
     {
+        Console.CursorVisible = false;
         //게임 설정
         gameOver = false;
+        //플레이어 설정
+        player = new Player();
         //씬 설정
         sceneDic = new Dictionary<string, BaseScene>();
         sceneDic.Add("Title", new TitleScene());
-        sceneDic.Add("Test01", new TestScene01());
+        sceneDic.Add("Town", new TownScene());
+        sceneDic.Add("Field", new FieldScene());
         
         curScene = sceneDic["Title"];
+        
+        
     }
     
     /// <summary>
